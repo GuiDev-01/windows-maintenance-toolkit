@@ -1,6 +1,3 @@
-🌎 **Looking for the Portuguese version?**  
-➡️ [README.pt-BR.md](README.pt-BR.md)
-
 # Windows Maintenance Toolkit
 
 🌎 **Looking for the Portuguese version?**
