@@ -1,306 +1,161 @@
-\# Windows Maintenance Toolkit
+# Windows Maintenance Toolkit
 
-
-
-🌎 \*\*English version\*\*
-
-➡️ \[README.md](README.md)
-
-
+🌎 **English version**  
+➡️ [README.md](README.md)
 
 Um conjunto de scripts em PowerShell para manter máquinas Windows limpas, organizadas e otimizadas de forma simples e segura.
 
+O projeto foi desenvolvido principalmente para desenvolvedores, automatizando tarefas comuns de manutenção sem remover arquivos pessoais ou projetos.
 
+---
 
-O projeto foi desenvolvido pensando principalmente em desenvolvedores, automatizando tarefas comuns de manutenção sem remover arquivos pessoais ou projetos.
+## Recursos
 
+- Limpeza diária de arquivos temporários
+- Limpeza da Lixeira
+- Limpeza do cache de miniaturas
+- Limpeza do cache DNS
+- Limpeza semanal do Docker (quando instalado)
+- Verificação do cache do npm
+- Limpeza do store do pnpm (quando instalado)
+- Manutenção do Windows utilizando DISM e SFC
+- Suporte ao WSL
+- Integração com o Agendador de Tarefas do Windows
+- Geração automática de logs
 
+---
 
-\---
-
-
-
-\## Recursos
-
-
-
-\- Limpeza diária de arquivos temporários
-
-\- Limpeza da Lixeira
-
-\- Limpeza do cache de miniaturas
-
-\- Limpeza do cache DNS
-
-\- Limpeza semanal do Docker (quando instalado)
-
-\- Verificação do cache do npm
-
-\- Limpeza do store do pnpm
-
-\- Manutenção do Windows utilizando DISM e SFC
-
-\- Suporte ao WSL
-
-\- Integração automática com o Agendador de Tarefas
-
-\- Geração de logs
-
-
-
-\---
-
-
-
-\## Estrutura do Projeto
-
-
+## Estrutura do Projeto
 
 ```text
-
 windows-maintenance-toolkit/
-
 │
-
 ├── scripts/
-
 │   ├── Daily.ps1
-
 │   ├── Weekly.ps1
-
 │   └── Monthly.ps1
-
 │
-
 ├── logs/
-
 │
-
 ├── Menu.ps1
-
 ├── Start.bat
-
 ├── README.md
-
 ├── README.pt-BR.md
-
 └── LICENSE.txt
-
 ```
 
+---
 
+## Tipos de Manutenção
 
-\---
+### Daily Cleanup
 
+Executa uma limpeza segura incluindo:
 
+- Arquivos temporários do usuário
+- Arquivos temporários do Windows
+- Lixeira
+- Cache de miniaturas
+- Arquivos temporários locais
+- Cache DNS
 
-\## Tipos de Manutenção
+**Frequência recomendada:** diariamente.
 
+---
 
+### Weekly Cleanup
 
-\### Daily Cleanup
+Inclui tudo da limpeza diária, além de:
 
+- Limpeza do Docker (apenas recursos não utilizados)
+- Verificação do cache do npm
+- Limpeza do store do pnpm (quando instalado)
 
+**Frequência recomendada:** semanalmente.
 
-Executa uma limpeza segura contendo:
+---
 
-
-
-\- Arquivos temporários do usuário
-
-\- Arquivos temporários do Windows
-
-\- Lixeira
-
-\- Cache de miniaturas
-
-\- Arquivos temporários locais
-
-\- Cache DNS
-
-
-
-Frequência recomendada:
-
-
-
-> Diariamente
-
-
-
-\---
-
-
-
-\### Weekly Cleanup
-
-
-
-Inclui tudo da limpeza diária e também:
-
-
-
-\- Limpeza do Docker (somente recursos não utilizados)
-
-\- Verificação do cache do npm
-
-\- Limpeza do store do pnpm (quando instalado)
-
-
-
-Frequência recomendada:
-
-
-
-> Semanalmente
-
-
-
-\---
-
-
-
-\### Monthly Maintenance
-
-
+### Monthly Maintenance
 
 Executa:
 
+- Limpeza de componentes do Windows (DISM)
+- Verificação de integridade do sistema (SFC)
+- Encerramento do WSL
 
+A compactação do disco virtual do WSL permanece desabilitada por padrão e deve ser configurada manualmente pelo usuário.
 
-\- Limpeza de componentes do Windows (DISM)
+**Frequência recomendada:** mensalmente.
 
-\- Verificação de integridade do sistema (SFC)
+---
 
-\- Encerramento do WSL
-
-
-
-A compactação do disco virtual do WSL permanece desabilitada por padrão e deve ser configurada manualmente.
-
-
-
-Frequência recomendada:
-
-
-
-> Mensalmente
-
-
-
-\---
-
-
-
-\## Automação
-
-
+## Automação
 
 O toolkit permite criar automaticamente tarefas no Agendador de Tarefas do Windows.
 
+As opções disponíveis são:
 
-
-Disponível:
-
-
-
-\- Limpeza diária ao iniciar sessão
-
-\- Limpeza semanal aos domingos
-
-
+- Limpeza diária ao iniciar sessão
+- Limpeza semanal aos domingos
 
 As tarefas também podem ser removidas diretamente pelo menu.
 
+---
 
+## Segurança
 
-\---
+Este projeto **não remove**:
 
+- Arquivos pessoais
+- Documentos
+- Downloads
+- Projetos
+- Código-fonte
+- Fotos
+- Vídeos
 
+A limpeza é restrita a arquivos temporários, caches e recursos de desenvolvimento que podem ser recriados automaticamente.
 
-\## Segurança
+Mesmo assim, recomenda-se revisar os scripts antes da utilização para garantir que atendam às suas necessidades.
 
+---
 
+## Requisitos
 
-Este projeto \*\*não remove\*\*:
-
-
-
-\- Arquivos pessoais
-
-\- Documentos
-
-\- Downloads
-
-\- Projetos
-
-\- Código-fonte
-
-\- Fotos
-
-\- Vídeos
-
-
-
-A limpeza é restrita a arquivos temporários, caches e recursos de desenvolvimento não utilizados.
-
-
-
-Mesmo assim, recomenda-se revisar os scripts antes da utilização.
-
-
-
-\---
-
-
-
-\## Requisitos
-
-
-
-\- Windows 10 ou Windows 11
-
-\- PowerShell 5.1 ou superior
-
-\- Privilégios de administrador
-
-
+- Windows 10 ou Windows 11
+- PowerShell 5.1 ou superior
+- Privilégios de administrador
 
 Docker, npm e pnpm são opcionais.
 
+---
 
+## Como utilizar
 
-\---
-
-
-
-\## Como utilizar
-
-
-
-Execute:
-
-
+1. Execute o arquivo:
 
 ```text
-
 Start.bat
-
 ```
 
+2. Escolha a opção desejada no menu interativo.
 
+O toolkit executará automaticamente a rotina selecionada.
 
-Escolha a opção desejada no menu interativo.
+---
 
+## Logs
 
+Todos os logs são armazenados na pasta:
 
-\---
+```text
+logs/
+```
 
+Cada execução gera ou atualiza um arquivo de log correspondente ao tipo de manutenção executada.
 
+---
 
-\## Licença
+## Licença
 
-
-
-MIT License
-
+Distribuído sob a licença MIT. Consulte o arquivo `LICENSE.txt` para mais informações.
