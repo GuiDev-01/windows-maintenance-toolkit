@@ -7,6 +7,10 @@ Um conjunto de scripts em PowerShell para manter máquinas Windows limpas, organ
 
 O projeto foi desenvolvido principalmente para desenvolvedores, automatizando tarefas comuns de manutenção sem remover arquivos pessoais ou projetos.
 
+## Preview
+
+![Windows Maintenance Toolkit](assets/preview.png)
+
 ---
 
 ## Recursos

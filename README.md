@@ -7,6 +7,11 @@ A lightweight PowerShell toolkit that helps keep Windows development machines cl
 
 This project provides automated maintenance scripts that safely remove temporary files, clean development caches, and perform routine system maintenance without affecting personal files or projects.
 
+
+## Preview
+
+![Windows Maintenance Toolkit](assets/preview.png)
+
 ---
 
 ## Features
